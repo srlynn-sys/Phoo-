@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoo K-pop & Thai-pop Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="site-header">
+      <img src="https://lh3.googleusercontent.com/d/14WBlxcwpCYj9gqkONoxRkhRrgwvBJSRH" alt="Shop Logo" class="logo">
+      <h1 class="shop-title">Phoo K-pop & Thai-pop Shop</h1>
+      <p class="address">No.460, Su Pyae Yadanar (2) St, 56 ward, South Dagon, Yangon<br>Ph: 09898948790</p>
+    </header>
+
+    <!-- Navigation Pills -->
+    <div class="nav-pills">
+      <button id="nav-shop" class="nav-pill active">🛍️ Shop Center</button>
+      <button id="nav-checker" class="nav-pill">🔍 Order Checker</button>
+    </div>
+
+    <!-- MAIN SHOP FLOW -->
+    <main id="shop-flow">
+
+      <!-- STEP 1: Enter Customer Name -->
+      <section id="page-step-name" class="view-card">
+        <h2 style="font-size:1.1rem; margin-bottom:12px; font-weight:800;">✨ မင်္ဂလာပါ၊ နာမည်လေး ရိုက်ထည့်ပေးပါ</h2>
+        <input type="text" id="cust-name-input" class="input-modern" placeholder="လူကြီးမင်း နာမည်..." required>
+        <button id="btn-to-catalog" class="btn-primary">ဈေးဝယ်ရန် ရှေ့ဆက်မည် ➔</button>
+      </section>
+
+      <!-- STEP 2: Product Catalog -->
+      <section id="page-catalog" class="view-card hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+          <p style="font-size:0.9rem; color:var(--text-sub);">မင်္ဂလာပါ <b id="display-cust-name" style="color:var(--purple-dark);"></b> 👋</p>
+          <button id="btn-change-name" style="background:none; border:none; color:var(--purple-primary); font-size:0.8rem; cursor:pointer;">(နာမည်ပြင်ရန်)</button>
+        </div>
+        <h2 style="font-size:1.1rem; font-weight:800; margin-bottom:10px;">🏷️ ပစ္စည်းများ</h2>
+        <div id="product-grid" class="product-grid"></div>
+      </section>
+
+      <!-- STEP 3: Product Detail Page -->
+      <section id="page-detail" class="view-card hidden">
+        <button id="btn-back-to-catalog" class="btn-secondary" style="margin-bottom:15px;">⬅️ ပစ္စည်းစာရင်းသို့ ပြန်သွားမည်</button>
+        <div id="detail-images"></div>
+        <h2 id="detail-title" style="margin:12px 0 6px 0; font-weight:800;"></h2>
+        <p id="detail-price" style="font-size:1.2rem; font-weight:800; color:var(--purple-primary); margin-bottom:15px;"></p>
+        
+        <div style="margin-bottom:15px;">
+          <label style="font-size:0.85rem; font-weight:700; color:var(--text-sub);">အရေအတွက်:</label>
+          <input type="number" id="detail-qty" class="input-modern" value="1" min="1" style="margin-top:6px;">
+        </div>
+
+        <button id="btn-to-checkout" class="btn-primary">ဝယ်ယူရန် Checkout သို့သွားမည် ➔</button>
+      </section>
+
+      <!-- STEP 4: Full-page Checkout & Invoice Page -->
+      <section id="page-checkout" class="view-card hidden">
+        <button id="btn-back-to-detail" class="btn-secondary" style="margin-bottom:15px;">⬅️ နောက်သို့</button>
+        <h2 style="font-size:1.2rem; font-weight:800; margin-bottom:15px;">💳 Order အချက်အလက်နှင့် ငွေရှင်းရန်</h2>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.85rem; font-weight:700; color:var(--text-sub);">ပို့ဆောင်ရေး ပုံစံ:</label>
+          <select id="select-delivery" class="input-modern" style="margin-top:6px;">
+            <option value="pickup">🏠 ကိုယ်တိုင် Pick-up လာယူမည်</option>
+            <option value="delivery">🚚 Delivery ပို့ပေးပါ</option>
+          </select>
+        </div>
+
+        <div id="delivery-info-box" class="hidden">
+          <input type="text" id="del-address" class="input-modern" placeholder="နေရပ်လိပ်စာ အပြည့်အစုံ">
+          <input type="tel" id="del-phone" class="input-modern" placeholder="ဖုန်းနံပါတ်">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.85rem; font-weight:700; color:var(--text-sub);">ငွေရှင်းစနစ်:</label>
+          <select id="select-payment" class="input-modern" style="margin-top:6px;">
+            <option value="cod">💵 Cash on Delivery / Pick-up ရှင်းမည်</option>
+            <option value="online">📱 Online Payment (KPay / WavePay)</option>
+          </select>
+        </div>
+
+        <div id="online-pay-info" class="hidden" style="background:#f3e8ff; padding:12px; border-radius:14px; margin-bottom:12px; font-size:0.85rem;">
+          <p><b>Wave Pay:</b> 09898948790 (Khin Saw Htwe)</p>
+          <p><b>KPay:</b> 09422725283 (Moe Pyae Pyae Zaw)</p>
+          <input type="text" id="pay-screenshot-link" class="input-modern" placeholder="ပြေစာ Image Direct Link ထည့်ပါ" style="margin-top:8px;">
+        </div>
+
+        <!-- Invoice Calculation Box -->
+        <div class="summary-box">
+          <div class="summary-row"><span>ကျသင့်ငွေ:</span><span id="sum-subtotal">0 Ks</span></div>
+          <div class="summary-row"><span>Discount လျှော့ဈေး:</span><span id="sum-discount">-0 Ks</span></div>
+          <div class="summary-total"><span>စုစုပေါင်း ကျသင့်ငွေ:</span><span id="sum-total">0 Ks</span></div>
+        </div>
+
+        <button id="btn-confirm-order" class="btn-primary">✨ Order အတည်ပြုမည်</button>
+      </section>
+
+    </main>
+
+    <!-- CHECKER PAGE -->
+    <section id="page-checker" class="view-card hidden">
+      <h2 style="font-size:1.1rem; font-weight:800; margin-bottom:12px;">🔍 Order Code စစ်ဆေးရန်</h2>
+      <input type="text" id="checker-code-input" class="input-modern" placeholder="Order Code (ဥပမာ- ORD-8921)">
+      <button id="btn-check-status" class="btn-primary">စစ်ဆေးမည်</button>
+
+      <div id="checker-result" class="hidden" style="margin-top:20px; background:#faf5ff; border:1px solid #e9d5ff; border-radius:16px; padding:16px;">
+        <p style="font-size:0.9rem; margin-bottom:8px;">Order Code: <b id="res-code"></b></p>
+        <p style="font-size:0.9rem; margin-bottom:8px;">Status: <span id="res-status-badge" class="badge"></span></p>
+        <div id="res-details" style="font-size:0.85rem; color:var(--text-sub); border-top:1px solid #e9d5ff; padding-top:8px; margin-top:8px;"></div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
