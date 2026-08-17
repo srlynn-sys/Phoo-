@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Phoo Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    
+    <header class="site-header">
+      <h1 class="shop-title">⚙️ Admin Dashboard</h1>
+      <p class="address">Product & Order Management</p>
+    </header>
+
+    <div class="view-card">
+      <h2 style="font-size:1.1rem; font-weight:800; margin-bottom:12px;">➕ ပစ္စည်းအသစ် တင်ရန်</h2>
+      <input type="text" id="p-name" class="input-modern" placeholder="ပစ္စည်းအမည်">
+      <input type="number" id="p-price" class="input-modern" placeholder="ဈေးနှုန်း (Ks)">
+      <input type="text" id="p-show-img" class="input-modern" placeholder="Show Photo Direct URL (.jpg / .png)">
+      <input type="text" id="p-detail-imgs" class="input-modern" placeholder="Detail Photo Links (ကော်မာ ၊ ခြားရေးပါ)">
+      <button id="btn-add-product" class="btn-primary">ပစ္စည်း တင်မည် ➔</button>
+    </div>
+
+    <div class="view-card" style="margin-top:20px;">
+      <h2 style="font-size:1.1rem; font-weight:800; margin-bottom:12px;">📦 Orders စာရင်း & Status ပြင်ရန်</h2>
+      <div id="admin-orders-list"></div>
+    </div>
+
+  </div>
+</body>
+</html>
